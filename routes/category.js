@@ -5,7 +5,7 @@ const { create, read, update, remove, list, categoryById } = require("../control
 const { requireSignin, isAuth, isAdmin } = require('../controllers/authController');
 const { userById } = require('../controllers/userController');
 
-// categories have to be all the way to the top
+// /api/category/categories have to be all the way to the top
 router.get('/categories', list)
 router.get('/:categoryId', read);
 router.post("/create/:userId", 
