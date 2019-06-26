@@ -10,11 +10,11 @@ exports.sayHi = (req,res) => {
 exports.signup = (req, res) => {
   console.log('req.body', req.body);
   const user = new User(req.body);
-  user.save((err, user) => {
+  user.save((error, user) => {
     console.log("reached signup endpoint")
-    if (err) {
+    if (error) {
       return res.status(400).json({
-        err: errorHandler(err)
+        error: errorHandler(error)
       })
     }
     user.salt = undefined;
@@ -29,17 +29,17 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => { 
   // find the user based on email
   const {email, password} = req.body
-  User.findOne({email}, (err, user) => {
-    if (err||!user) {
+  User.findOne({email}, (error, user) => {
+    if (error||!user) {
       return res.status(400).json({
-        err: 'User with that email does not exist'
+        error: 'User with that email does not exist'
       });
     }
     // if user is found make sure the email and password match
     // create authenticate method in user model
     if (!user.authenticate(password)) {
       return res.status(401).json({
-        error: 'Email and passowrd don\'t match'
+        error: 'Email and password don\'t match'
       });
     }
     const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
