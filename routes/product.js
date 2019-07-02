@@ -9,6 +9,7 @@ const {
   update, 
   list, 
   listRelated, 
+  listSearch,
   listCategories,
   listBySearch, 
   photo 
@@ -22,6 +23,7 @@ router.get('/products/related/:productId', listRelated)
 router.get('/products', list)
 router.get('/products/categories', listCategories)
 router.get('/photo/:productId', photo)
+router.get('/products/search', listSearch);
 router.post('/products/by/search', listBySearch);
 router.get('/:productId', read);
 router.post("/create/:userId",
