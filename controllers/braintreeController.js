@@ -29,7 +29,7 @@ exports.processPayment = (req, res) => {
     options: {
       submitForSettlement: true
     }
-  }, (error, resultf) => {
+  }, (error, result) => {
     if(error) {
       response.status(500).json(error)
     } else {
