@@ -27,6 +27,7 @@ app.use('/api/users', require('./routes/auth'));
 app.use('/api/users', require("./routes/user"));
 app.use("/api/braintree", require("./routes/braintree"));
 app.use('/api/category', require("./routes/category"));
+app.use('/api/orders/', require("./routes/order"));
 app.use('/api/product', require('./routes/product'));
 
 const port = process.env.PORT;
