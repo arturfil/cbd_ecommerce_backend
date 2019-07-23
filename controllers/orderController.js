@@ -2,7 +2,7 @@ const {Order, CartItem} = require('../models/Order');
 
 const {errorHandler} = require('../helpers/dberrorHandler');
 
-exports.orderById = (req,res,next) => {
+exports.orderById = (req,res,next,id) => {
   Order.findById(id)
     .populate('products.product', 'name price')
     .execute((err, order) => {
