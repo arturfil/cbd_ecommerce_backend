@@ -23,7 +23,7 @@ mongoose.connect(process.env.DATABASE, {
 }).then(() => { console.log("Database connected")})
 
 // Routes
-app.use('/user', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 app.use('/users', require("./routes/user"));
 app.use("/braintree", require("./routes/braintree"));
 app.use('/category', require("./routes/category"));
