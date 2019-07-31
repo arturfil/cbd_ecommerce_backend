@@ -23,12 +23,12 @@ mongoose.connect(process.env.DATABASE, {
 }).then(() => { console.log("Database connected")})
 
 // Routes
-app.use('/auth', require('./routes/auth'));
-app.use('/users', require("./routes/user"));
-app.use("/braintree", require("./routes/braintree"));
-app.use('/category', require("./routes/category"));
-app.use('/orders/', require("./routes/order"));
-app.use('/product', require('./routes/product'));
+app.use('/api/users', require('./routes/auth'));
+app.use('/api/users', require("./routes/user"));
+app.use("/api/braintree", require("./routes/braintree"));
+app.use('/api/category', require("./routes/category"));
+app.use('/api/orders/', require("./routes/order"));
+app.use('/api/product', require('./routes/product'));
 
 const port = process.env.PORT;
 
